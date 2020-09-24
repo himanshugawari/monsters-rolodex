@@ -1,24 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
+import { CardList } from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      monsters: [
-        // {
-        //   name: "Frankenstein",
-        //   id: "asc1",
-        // },
-        // {
-        //   name: "Dracula",
-        //   id: "asr1",
-        // },
-        // {
-        //   name: "Zombie",
-        //   id: "asw1",
-        // },
-      ],
+      monsters: [],
     };
   }
 
@@ -31,11 +19,6 @@ class App extends Component {
       console.log(userResponse);
       console.log(users);
       this.setState({ monsters: users });
-      // const secondUser=users[1];
-      // console.log(secondUser);
-      // const postResponse=await fetch('https://jsonplaceholder.typicode.com/posts?userId='+secondUser.id);
-      // const posts=await postResponse.json();
-      // console.log(posts);
     };
     myAsyncFunction();
 
@@ -48,9 +31,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.monsters.map((monster) => (
-          <h1 key={monster.id}>{monster.name}</h1>
-        ))}
+        <CardList name="Himanshu">
+          {/* <h1>Himansu Gawari</h1> */}
+          {this.state.monsters.map((monster) => (
+            <h1 key={monster.id}>{monster.name}</h1>
+          ))}
+        </CardList>
       </div>
     );
   }
